@@ -9,3 +9,17 @@ devtools::install_github("LB1304/dynSBevo")
 ```
 
 To download the .tar.gz file (for manual installation) use [this link](https://github.com/LB1304/dynSBevo/archive/main.tar.gz).
+
+
+The main functions of the package are 
+- `SBdyn_draw`, to sample a random longitudinal network data from the dynamic stochastic block model; 
+- `est_dynSB`, to performs approximate maximum likelihood estimation of the parameters of the dynamic stochastic block model for longitudinal network data. 
+
+More on the options is accessible with the following commands.
+
+```r
+require(dynSBevo)
+
+help("SBdyn_draw")
+help("est_dynSB")
+```
