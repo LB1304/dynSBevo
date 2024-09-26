@@ -3,9 +3,6 @@ Type: Package
 Title: Estimation of the dynamic stochastic block model through standard and evolutionay VEM algorithms
 Version: 1.0
 Date: 2023-08-15
-Authors@R: c(
-  person("Luca", "Brusa", email = "luca.brusa@unimib.it", role = c("cre", "aut")),
-  person("Fulvia", "Pennoni"))
 Description: The dynSBevo package provides functions for performing approximate maximum likelihood estimation of the dynamic stochastic block model for longitudinal network using two versions (standard and evolutionary) of the variational expectation maximization (VEM) algorithm. The package is implemented in C++ to provide efficient computations. 
 License: GPL-3
 Imports: 
