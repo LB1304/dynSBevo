@@ -14,8 +14,3 @@ The main functions of the package are listed hereafter:
 }
 }
 
-\author{
-Luca Brusa [aut, cre], Fulvia Pennoni [aut]
-
-\emph{Maintainer}: Luca Brusa (luca.brusa@unimib.it)
-}
