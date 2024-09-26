@@ -17,7 +17,7 @@ est_dynSB <- function(data, k, start = NULL, tol_lk = 1e-8, tol_theta = 1e-8, ma
                   "4" = Init_SpectClust(Y, cl0, n, k, TT),
                   "5" = Init_SBM_Binary(Y, n, k, TT),
                   "6" = Init_SBM_Weighted(Y, n, k, TT),
-                  "7" = Init_Fixed(StartVal, n, k, TT)
+                  "7" = StartVal
     )
     out <- dynSB_VEM(Y = Y, k = k, sv = sv, tol_lk = tol_lk, tol_theta = tol_theta, maxit = maxit)
   } else if (algorithm == "EVEM") {
