@@ -38,5 +38,4 @@ sample <- SBdyn_draw(n, k, TT, piv, Pi, B)
 Y <- sample$Y
 V <- sample$V
 }
-\author{Luca Brusa, Fulvia Pennoni}
 
