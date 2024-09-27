@@ -3,7 +3,10 @@ The dynSBevo package provides functions for performing approximate maximum likel
 
 To install the `dynSBevo` package directly from GitHub:
 ```r
-# install.packages("devtools")
+if (!"devtools" %in% installed.packages()) {
+    install.packages("devtools", dependencies = TRUE)
+}
+
 require(devtools)
 devtools::install_github("LB1304/dynSBevo")
 ```
