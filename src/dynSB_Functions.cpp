@@ -435,7 +435,11 @@ Rcpp::List dynSB_M_step (arma::cube Y, arma::mat Tau1, arma::field<arma::cube> T
           den += Taum_sub1 * arma::accu(Taum_sub3) + Taum_sub2 * arma::accu(Taum_sub4);
         }
       }
-      B(u, v) = num/den;
+      if(den == 0){
+        B(u, v) = 0;
+      } else {
+        B(u, v) = num/den;
+      }
     }
   }
   
