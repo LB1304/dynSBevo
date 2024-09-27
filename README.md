@@ -15,7 +15,7 @@ The main functions of the package are:
 - `SBdyn_draw`, to sample a random longitudinal network data from the dynamic stochastic block model; 
 - `est_dynSB`, to performs approximate maximum likelihood estimation of the parameters of the dynamic stochastic block model for longitudinal network data. 
 
-More on the options is accessible with the following commands.
+More on the options of the functions and some examples are accessible with the following commands.
 
 ```r
 require(dynSBevo)
