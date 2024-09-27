@@ -67,7 +67,7 @@ stdSB.km <- est_dynSB(data = Y, k = 3, start = 2, tol_lk = 1e-8, tol_theta = 1e-
 stdSB.wsb <- est_dynSB(data = Y, k = 3, start = 6, tol_lk = 1e-8, tol_theta = 1e-8, maxit = 1e3, algorithm = "VEM")
 
 ## Estimation of the dynamic SB model using the evolutionary VEM algorithm
-evoSB <- est_dynSB(data = sim$Y, k = k, tol_lk = 1e-6, tol_theta = 1e-6, maxit = 1e3, algorithm = "EVEM", 
+evoSB <- est_dynSB(data = Y, k = k, tol_lk = 1e-6, tol_theta = 1e-6, maxit = 1e3, algorithm = "EVEM", 
                    evolutionaryOptions = list(n_parents = 25, LMP = 0.05, UMP = 0.25, R = 15))
 }
 
