@@ -8,8 +8,7 @@ License: GPL-3
 Imports: 
   Rcpp (>= 1.0.8),
   RcppParallel (>= 5.1.5), 
-  RcppArmadillo (>= 0.11.0), 
-  RcppAlgos (>= 2.5.3), 
+  RcppArmadillo (>= 0.11.0),
   sbm (>= 0.4.6)
 LinkingTo: Rcpp, RcppArmadillo, RcppParallel
 SystemRequirements: GNU make
