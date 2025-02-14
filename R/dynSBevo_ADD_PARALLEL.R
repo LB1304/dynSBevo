@@ -9,10 +9,10 @@ dynSB_EVEM_PAR <- function (Y, k, tol_lk, tol_theta, maxit, n_parents, LMP, UMP,
 
   ### Parallelization
   # cl <- makeCluster(N.threads, type = "FORK")    # --> Linux/Mac
-  cl <- makeCluster(N.threads, type = "PSOCK")   # --> Windows/Linux/Mac
-  clusterEvalQ(cl, library(dynSBevo))
-  clusterExport(cl, varlist = c("Y"), envir = environment())
-  registerDoParallel(cl)
+  cl <- parallel::makeCluster(N.threads, type = "PSOCK")   # --> Windows/Linux/Mac
+  parallel::clusterEvalQ(cl, library(dynSBevo))
+  parallel::clusterExport(cl, varlist = c("Y"), envir = environment())
+  doParallel::registerDoParallel(cl)
 
   # 2. Evolution (separate)
   PV1_Ran_Aux <- dynSB_EVEM_step_PAR(Y, k, PV0_Ran, tol_lk, tol_theta, n_parents, LMP, UMP, R, n, TT, FALSE)
@@ -44,7 +44,7 @@ dynSB_EVEM_PAR <- function (Y, k, tol_lk, tol_theta, maxit, n_parents, LMP, UMP,
   out_best <- dynSB_LastUpdate_step(Y, k, PV_best, tol_lk, tol_theta, maxit)
   # cat("Last Step.\n")
   
-  stopCluster(cl)
+  parallel::stopCluster(cl)
   return(out_best)
 }
 
