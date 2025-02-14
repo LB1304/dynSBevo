@@ -18,6 +18,8 @@ est_dynSB(data, k, start = NULL, tol_lk = 1e-8, tol_theta = 1e-8, maxit = 1e3,
   \item{StartVal}{Starting values for the VEM algorithm; default is \code{NULL}}
   \item{algorithm}{Version of the VEM algorithm employed: \code{"VEM"} for the standard VEM and \code{"EVEM"} for the evolutionary VEM algorithms}
   \item{evolutionaryOptions}{A list containing the options for the evolutionary VEM algorithm (see the \emph{Details} section)}
+  \item{Parallel}{Set to \code{TRUE} to use the parallelized version of the algorithm; \code{FALSE} (default) for the sequential version.}
+  \item{N.threads}{Number of threads to use in the parallel execution ov the EVEM algorithm (if \code{Parallel} is \code{TRUE})}
 }
 \details{
 The list \code{evolutionaryOptions} contains the evolutionary constants used to set the EVEM algorithm optimally:
