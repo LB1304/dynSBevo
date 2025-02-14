@@ -1,5 +1,5 @@
 est_dynSB <- function(data, k, start = NULL, tol_lk = 1e-8, tol_theta = 1e-8, maxit = 1e3, StartVal = NULL, algorithm = c("VEM", "EVEM"), 
-                      evolutionaryOptions = list(n_parents = NULL, LMP = NULL, UMP = NULL, R = NULL)) {
+                      evolutionaryOptions = list(n_parents = NULL, LMP = NULL, UMP = NULL, R = NULL), Parallel = FALSE, N.threads = NULL) {
   
   if(is.array(data)) {
     Y <- data
@@ -30,8 +30,15 @@ est_dynSB <- function(data, k, start = NULL, tol_lk = 1e-8, tol_theta = 1e-8, ma
       UMP = evolutionaryOptions$UMP
       R = evolutionaryOptions$R
     }
-    out <- dynSB_EVEM(Y = Y, k = k, tol_lk = tol_lk, tol_theta = tol_theta, maxit = maxit, 
-                      n_parents = n_parents, LMP = LMP, UMP = UMP, R = R)
+
+    if (isTRUE(Parallel)) {
+      out <- dynSB_EVEM_PAR(Y = Y, k = k, tol_lk = tol_lk, tol_theta = tol_theta, maxit = maxit, 
+                        n_parents = n_parents, LMP = LMP, UMP = UMP, R = R, N.threads = N.threads)
+    } else {
+      out <- dynSB_EVEM(Y = Y, k = k, tol_lk = tol_lk, tol_theta = tol_theta, maxit = maxit, 
+                        n_parents = n_parents, LMP = LMP, UMP = UMP, R = R)
+    }
+    
   } else {
     stop("Specify an available algorithm.")
   }
