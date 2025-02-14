@@ -54,18 +54,19 @@ dynSB_EVEM_PAR <- function (Y, k, tol_lk, tol_theta, maxit, n_parents, LMP, UMP,
 dynSB_EVEM_step_PAR <- function(Y, k, PV1, tol_lk, tol_theta, n_parents, LMP, UMP, R, n, TT, keep_best) {
   it <- 0
   alt <- FALSE
+  `%dopar%` <- foreach::`%dopar%`
   
   while (!alt) {
     it <- it+1
     
     # 1. Update parents and compute fitness (Parallelized)
-    PV2 <- foreach::foreach(b = 1:n_parents) foreach::`%dopar%` {
+    PV2 <- foreach::foreach(b = 1:n_parents) %dopar% {
       PV1_sub1 <- PV1[[b]]
       dynSBevo::dynSB_Update_step(Y, k, PV1_sub1, tol_lk, tol_theta, R)
     }
     fit2 <- unlist(lapply(PV2, "[[", "J"))
     # 2. Mutation
-    PV3 <- foreach::foreach(b = 1:n_parents) foreach::`%dopar%` {
+    PV3 <- foreach::foreach(b = 1:n_parents) %dopar% {
       PV2_sub1 <- PV2[[b]]
       Tau1 <- PV2_sub1$Tau1
       TAU <- PV2_sub1$TAU
@@ -75,7 +76,7 @@ dynSB_EVEM_step_PAR <- function(Y, k, PV1, tol_lk, tol_theta, n_parents, LMP, UM
       PV3[[1]] <- PV2[[1]]
     }
     # 3. Update children and compute fitness (Parallelized)
-    PV4 <- foreach::foreach(b = 1:n_parents) foreach::`%dopar%` {
+    PV4 <- foreach::foreach(b = 1:n_parents) %dopar% {
       PV3_sub1 <- PV3[[b]]
       dynSBevo::dynSB_Update_step(Y, k, PV3_sub1, tol_lk, tol_theta, R)
     }
