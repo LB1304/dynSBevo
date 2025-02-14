@@ -11,6 +11,7 @@ Imports:
   RcppArmadillo (>= 0.11.0),
   sbm (>= 0.4.6), 
   parallel (<= 4.4.2), 
-  doParallel (>= 1.0.17)
+  doParallel (>= 1.0.17), 
+  foreach (<= 1.5.2)
 LinkingTo: Rcpp, RcppArmadillo, RcppParallel
 SystemRequirements: GNU make
