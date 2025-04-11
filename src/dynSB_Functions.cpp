@@ -592,7 +592,8 @@ Rcpp::List dynSB_VEM (arma::cube Y, int k, Rcpp::List sv, double tol_lk, double 
                             Rcpp::Named("k") = k, 
                             Rcpp::Named("V") = V + 1,
                             Rcpp::Named("Tau1") = Tau1_old,
-                            Rcpp::Named("TAU") = TAU_old);
+                            Rcpp::Named("TAU") = TAU_old, 
+                            Rcpp::Names("Taum") = Taum);
 }
 
 
